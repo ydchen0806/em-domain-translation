@@ -1,0 +1,19 @@
+{
+    "controlnet_train": {
+        "batch_size": 2,
+        "cache_rate": 0.0,
+        "fold": 0,
+        "lr": 1e-5,
+        "n_epochs": 300,
+        "use_vqgan": true,
+        "use_144": true,
+        "use_unsb": true,
+        "weighted_loss_label": [0],
+        "weighted_loss": 100
+    },
+    "controlnet_infer": {
+       "num_inference_steps": 5,
+       "autoencoder_sliding_window_infer_size": [160, 160, 18]
+    }
+    
+}

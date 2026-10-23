@@ -1,0 +1,18 @@
+{
+    "unsb_inference": {
+        "dim": [
+            160,
+            160,
+            18
+        ],
+        "num_inference_steps": 10,
+        "random_seed": 0
+    },
+    "diff_unsb_train": {
+        "batch_size": 1,
+        "cache_rate": 0,
+        "lr": 0.0002,
+        "n_epochs": 1000,
+        "val_interval": 10
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "data_base_dir": "./data",
+    "embedding_base_dir": "./embeddings",
+
+    "existing_ckpt_filepath_past": "./models/diff_trans/diff_unet_epoch1000_loss0.2911.pt",
+    "existing_ckpt_filepath": "./models/maisi/model_maisi_input_unet3d_data-all_steps1000size512ddpm_random_current_inputx_v1_alternative.pt",
+    "existing_ckpt_filepath_vq": "./models/diff_vq18/diff_unet_epoch0340_loss0.0514.pt",
+    "existing_ckpt_filepath_nono": "./models/diff_vae144/diff_unet_epoch0203_loss0.2843.pt",
+    
+
+    "json_data_list": "./dataset.json",
+    "model_dir": "./models/diff_ac42c/",
+    "model_filename": "diff_unet_epoch0001_loss0.4260.pt",
+    "output_dir": "./outputs/diff_ac42c/",
+
+    "infer_path": "./outputs/diff_infer1000",
+    "infer_model": "./models/diff_trans/diff_unet_epoch1000_loss0.2911.pt",
+
+    "output_prefix": "diff_ac42c",
+    
+    "trained_autoencoder_path_norm2": "./local_data/exp_vqgan/MIX/CremiC+AC4_train_norm2/lightning_logs/version_0/checkpoints/epoch=1399-step=34999-train/recon_loss=0.08.ckpt",
+    "trained_autoencoder_path_norm1_pass": "./local_data/exp_vqgan/MIX/CremiC+AC4_train/lightning_logs/version_0/checkpoints/epoch=1359-step=33999-train/recon_loss=0.05.ckpt",
+    "trained_autoencoder_path": "./local_data/exp_vqgan/MIX/CremiC+AC4_train_18_data80/lightning_logs/version_0/checkpoints/epoch=1359-step=33999-train/recon_loss=0.05.ckpt",
+    "trained_autoencoder_path_past": "./models/vae_ft_final/autoencoder_epoch286.pt",
+    "trained_autoencoder_path_vae": "./models/vae_144_final/autoencoder_epoch198.pt",
+
+    "tfevent_path": "./outputs/tfevent"
+}

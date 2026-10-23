@@ -1,0 +1,41 @@
+{   
+    "mode": "train_cn",
+    "use_vqgan": true,
+    "dataloader_len": 1000,
+    "norm2": false,
+
+    "target_path": "./local_data/CREMI",
+    "target_dataset": "cremiC_inputs_interp.h5",
+    "source_path": "./local_data/AC3_AC4/",
+    "source_dataset": "AC4_inputs.h5",
+
+    "flow_matching_train":{
+        "batch_size": 2,
+        "lr": 0.0001,
+        "n_epochs": 2000,
+        "val_interval": 10,
+
+        "P_mean": 0.0,
+        "P_std": 1.0,
+        "t_eps": 5e-2,
+        "noise_scale": 1.0,
+        "weighted_loss": 1,
+        "ema_decay1": 0.9999,
+        "ema_decay2": 0.9996
+        
+    },
+    "controlnet_train": {
+        "batch_size": 1,
+        "lr": 1e-5,
+        "n_epochs": 300,
+        "val_interval": 10,
+
+        "weighted_loss": 100
+    },
+    "flow_matching_sampling":{
+        "sampling_method": "heun",
+        "num_sampling_steps": 50,
+        "cfg": 2.9,
+        "interval": [0.1,1.0]
+    }
+}

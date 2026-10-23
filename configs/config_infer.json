@@ -1,0 +1,72 @@
+{
+    "trained_autoencoder_path_vq": 
+    "./local_data/exp_vqgan/MIX/CremiC+AC4_train_18_data80/lightning_logs/version_0/checkpoints/epoch=1359-step=33999-train/recon_loss=0.05.ckpt",
+    "trained_diffusion_path_vq": 
+    "./models/diff_vq18_data80/diff_unet_epoch0795_loss0.0606.pt",
+    "trained_controlnet_path_vq": 
+    "./models/controlnet_trans_vq18_data80/controlnet_trans_epoch77_loss1.1157.pt",
+    
+    "trained_autoencoder_path_vae144": 
+    "./models/vae_144_final/autoencoder_epoch198.pt",
+    "trained_diffusion_path_vae144": 
+    "./models/diff_vae144_final/diff_unet_epoch0615_loss0.2809.pt",
+    "trained_controlnet_path_vae144": 
+    "./models/controlnet_vae144_final/controlnet_trans_epoch87_loss5.9656.pt",
+
+    "trained_autoencoder_path": 
+    "./local_data/exp_vqgan/MIX/CremiC+AC4_train_18_data80/lightning_logs/version_0/checkpoints/epoch=1359-step=33999-train/recon_loss=0.05.ckpt",
+    
+    "trained_diffusion_path": 
+    "./models/diff_ac42c/diff_unet_epoch0990_loss0.0695.pt",
+    "trained_controlnet_path": 
+    "./models/controlnet_diff_ac42c/controlnet_diff_ac42c_epoch97_loss1.5667.pt",
+
+    "trained_diffusion_path_c2a_ldm": 
+    "./models/1-diffusion/diff_vq18_data80/diff_unet_epoch0795_loss0.0606.pt",
+    "trained_controlnet_path_c2a_ldm": 
+    "./models/controlnet_trans_vq18_data80/controlnet_trans_epoch77_loss1.1157.pt",
+
+    "trained_unsb_path_infer_visual":
+    "./models/3-UNSB/unsb_vq18_n5_l5c_e200_sb1.0_nce0.5/netG_epoch0125_loss0.9259.pth",
+    "trained_controlnet_path0": 
+    "./models/controlnet_unsb_n5_sb1.0_nce0.5_e125/controlnet_unsb_epoch226_loss0.3830.pt",
+
+    "trained_unsb_path——no":
+    "./models/unsb_nce0.5_w100/netG_epoch0130_loss0.0151.pth",
+    "trained_unsb_path_nnns":
+    "./models/unsb_ac42c_base_lr1e6_20g2d1/netG_epoch0030_loss0.3808.pth",
+    "trained_controlnet_path_kkk": 
+    "./models/maisi/model_maisi_controlnet-20datasets-e20wl100fold0bc_noi_dia_fsize_current_alternative.pt",
+    
+    "trained_autoencoder_path_vae444": 
+    "./models/vae_ft_final/autoencoder_epoch286.pt",
+    "trained_diffusion_path_vae444": 
+    "./models/diff_trans_v2/diff_unet_epoch1158_loss0.2672.pt",
+    "trained_controlnet_path_vae444": 
+    "./models/controlnet_trans/controlnet_trans_epoch32_loss0.2630.pt",
+    
+    "trained_controlnet_path_maisi": 
+    "./models/maisi/model_maisi_controlnet-20datasets-e20wl100fold0bc_noi_dia_fsize_current_alternative.pt",
+
+    "num_output_samples": 10000,
+
+    "use_vqgan": true,
+    "use_144": true,
+    "use_unsb": false,
+
+    "samples": 10000,
+    "inference_dir": "./local_data/samples_ldm_a2c_tmp",
+    "save_type": "png",
+
+    "num_inference_steps": 1000,
+    "output_size": [
+        160,
+        160,
+        18
+    ],
+    "image_output_ext": ".nii.gz",
+    "label_output_ext": ".nii.gz",
+
+    "autoencoder_sliding_window_infer_size": [48,48,48],
+    "autoencoder_sliding_window_infer_overlap": 0.25
+}

@@ -1,0 +1,58 @@
+{   
+    "use_vqgan": true,
+    
+
+    "output_size": [
+        160,
+        160,
+        18
+    ],
+    "latent_shape":[
+        4,
+        40,
+        40,
+        18
+    ],
+
+    "AtoC": true,
+
+    "trained_model_path": "./models/flow_cremic/flow_model_epoch1000_loss0.1978.pt",
+    "trained_controlnet_path": "./models/flow_controlnet_cremic/controlnet_epoch0300_loss3.4225.pt",
+
+    "trained_model_path_c2a": "./models/flow_match/flow_model_epoch1000_loss0.2188.pt",
+    "trained_controlnet_path_c2a": "./models/flow_controlnet/controlnet_epoch0270_loss4.8761.pt",
+
+    "trained_model_pathh": "./models/flow_constant_lr_v2/flow_model_epoch1000_loss0.2133.pt",
+    "trained_controlnet_pathk": "./models/flow_controlnet_constant_lr/controlnet_epoch0500_loss4.5536.pt",
+
+
+    "trained_autoencoder_path": "./local_data/exp_vqgan/MIX/CremiC+AC4_train_18_data80/lightning_logs/version_0/checkpoints/epoch=1359-step=33999-train/recon_loss=0.05.ckpt",
+
+    "flow_matching_train":{
+        "batch_size": 2,
+        "lr": 0.0001,
+        "n_epochs": 1000,
+        "val_interval": 10,
+
+        "P_mean": 0.0,
+        "P_std": 1.0,
+        "t_eps": 5e-2,
+        "noise_scale": 1.0,
+        "weighted_loss": 1,
+        "ema_decay1": 0.9999,
+        "ema_decay2": 0.9996
+        
+    },
+    "flow_matching_sampling":{
+        "sampling_method": "heun",
+        "num_sampling_steps": 50,
+        "cfg": 2.9,
+        "interval": [0.1,1.0]
+    }
+
+
+
+    
+        
+
+    }

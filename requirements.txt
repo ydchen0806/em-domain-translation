@@ -1,0 +1,17 @@
+# Top-level PyTorch, CUDA, and MONAI versions depend on the GPU environment.
+# The original environment specification is retained in requirements_original.txt.
+# These are the directly observed auxiliary packages; this list is not exhaustive.
+monai
+pytorch-lightning==1.9.0
+torchmetrics==0.7
+omegaconf==2.1.1
+waterz
+protobuf==3.20.2
+imageio==2.9.0
+imageio-ffmpeg==0.4.8
+Cython==3.0.8
+mahotas
+h5py
+numpy
+scipy
+scikit-image

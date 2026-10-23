@@ -1,0 +1,21 @@
+{
+    "existing_ckpt_filepath_maisi": "./models/maisi/model_maisi_input_unet3d_data-all_steps1000size512ddpm_random_current_inputx_v1_alternative.pt",
+
+
+    "trained_model_path_this1": "./models/flow_constant_lr_v2/flow_model_epoch1000_loss0.2133.pt",
+
+    "trained_model_path": "./models/flow_cremic/flow_model_epoch1000_loss0.1978.pt",
+
+    "trained_model_path_this": null,
+
+    "trained_controlnet_path": "./models/maisi/model_maisi_controlnet-20datasets-e20wl100fold0bc_noi_dia_fsize_current_alternative.pt",
+
+    "trained_autoencoder_path": "./local_data/exp_vqgan/MIX/CremiC+AC4_train_18_data80/lightning_logs/version_0/checkpoints/epoch=1359-step=33999-train/recon_loss=0.05.ckpt",
+
+    "output_dir": "./outputs/flow_controlnet_cremic/",
+    "model_dir": "./models/flow_controlnet_cremic/",
+
+    "output_prefix": "flow_controlnet_cremic",
+
+    "tfevent_path": "./outputs/tfevent/flow_match"
+}

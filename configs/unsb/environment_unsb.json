@@ -1,0 +1,12 @@
+{
+    "existing_netG_path": null,
+    "existing_netD_path": null,
+    "existing_netF_path": null,
+    "existing_netE_path": null,
+    "model_dir": "./models/diff_unsb/",
+    "model_filename": "diff_unet_example.pt",
+    "output_dir": "./outputs/tmp_unsb",
+    "output_prefix": "unsb_3d",
+    "trained_autoencoder_path": "./models/vae_ft_final/autoencoder_epoch286.pt",
+    "tfevent_path": "./outputs/tfevent"
+}

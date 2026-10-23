@@ -1,0 +1,19 @@
+{
+    "model_dir": "./models/seg_dacs_c2a_w01_vf/",
+    "cache_path": "./outputs/seg_dacs_c2a_w01_vf/",
+    "valid_path": "./outputs/seg_dacs_c2a_w01_vf/valid/",
+    "log_path": "./outputs/seg_dacs_c2a_w01_vf/log/",
+    "trained_segmentation_path_past": "./models/seg_maisi_b2_s1000_w0.1/seg_maisi_epoch0044_loss0.4474.pt",
+    "trained_segmentation_path": null,
+    
+    "trained_autoencoder_path": "./local_data/exp_vqgan/MIX/CremiC+AC4_train_18_data80/lightning_logs/version_0/checkpoints/epoch=1359-step=33999-train/recon_loss=0.05.ckpt",
+    "trained_diffusion_path": "./models/diff_vq18_data80/diff_unet_epoch0795_loss0.0606.pt",
+    "trained_controlnet_path": "./models/maisi/model_maisi_controlnet-20datasets-e20wl100fold0bc_noi_dia_fsize_current_alternative.pt",
+
+    "trained_autoencoder_path_vae444": "./models/vae_ft_final/autoencoder_epoch286.pt",
+    
+    "trained_diffusion_path_vae444": "./models/diff_trans_v2/diff_unet_epoch1158_loss0.2672.pt",
+    "trained_controlnet_path_vae444": "./models/controlnet_trans/controlnet_trans_epoch144_loss0.2623.pt",
+    
+    "exp_name": "seg_maisi"
+}

@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.ckpt
+*.pth
+*.pt
+*.h5
+*.hdf5
+*.log
+.ipynb_checkpoints/
+local_data/
+checkpoints/
+logs/
+wandb/
+.env

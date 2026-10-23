@@ -1,0 +1,240 @@
+{
+    "spatial_dims": 3,
+    "image_channels": 1,
+    "latent_channels": 4,
+    "concat_channels": 8,
+    "mask_generation_latent_shape": [
+        4,
+        40, 
+        40,
+        18
+    ], 
+    "vqgan_def": {
+        "_target_": "networks_copy.vqgan.VQGAN",
+        "embedding_dim": "@latent_channels",
+        "n_codes": 16384,
+        "n_hiddens": 16,
+        "downsample": [1,4,4],
+        "image_channels": "@image_channels",
+        "norm_type": "group",
+        "padding_type": "replicate",
+        "num_groups": 32,
+        "no_random_restart": false,
+        "restart_thres": 1.0,
+        "gan_feat_weight": 4.0,
+        "disc_channels": 64,
+        "disc_layers": 3,
+        "disc_loss_type": "hinge",
+        "image_gan_weight": 1.0,
+        "video_gan_weight": 1.0,
+        "perceptual_weight": 4.0,
+        "l1_weight": 4.0,
+        "vqgan_ckpt": null
+    },
+    "autoencoder_def": {
+        "_target_": "networks_copy.autoencoderkl_maisi.AutoencoderKlMaisi",
+        "spatial_dims": "@spatial_dims",
+        "in_channels": "@image_channels",
+        "out_channels": "@image_channels",
+        "latent_channels": "@latent_channels",
+        "num_channels": [
+            64,
+            128,
+            256
+        ],
+        "num_res_blocks": [2,2,2],
+        "norm_num_groups": 32,
+        "norm_eps": 1e-06,
+        "attention_levels": [
+            false,
+            false,
+            false
+        ],
+        "with_encoder_nonlocal_attn": false,
+        "with_decoder_nonlocal_attn": false,
+        "use_checkpointing": false,
+        "use_convtranspose": false,
+        "norm_float16": true,
+        "num_splits": 4,
+        "dim_split": 1
+    },
+    "diffusion_unet_def": {
+        "_target_": "networks_copy.diffusion_model_unet_maisi.DiffusionModelUNetMaisi",
+        "spatial_dims": "@spatial_dims",
+        "in_channels": "@concat_channels",
+        "out_channels": "@latent_channels",
+        "num_channels": [
+            64,
+            128,
+            256,
+            512
+        ],
+        "attention_levels": [
+            false,
+            false,
+            true,
+            true
+        ],
+        "num_head_channels": [
+            0,
+            0,
+            32,
+            32
+        ],
+        "num_res_blocks": 2,
+        "use_flash_attention": true,
+        "include_top_region_index_input": false,
+        "include_bottom_region_index_input": false,
+        "include_spacing_input": false
+    },
+    "controlnet_def": {
+        "_target_": "networks_copy.controlnet_maisi.ControlNetMaisi",
+        "spatial_dims": "@spatial_dims",
+        "in_channels": "@concat_channels",
+        "num_channels": [
+            64,
+            128,
+            256,
+            512
+        ],
+        "attention_levels": [
+            false,
+            false,
+            true,
+            true
+        ],
+        "num_head_channels": [
+            0,
+            0,
+            32,
+            32
+        ],
+        "num_res_blocks": 2,
+        "use_flash_attention": true,
+        "conditioning_embedding_in_channels": 3,
+        "conditioning_embedding_num_channels": [8, 32, 64]
+    },
+    "netG_def": {
+        "_target_": "networks_copy.unsb_model.Generator",
+        "spatial_dims": "@spatial_dims",
+        "in_channels": "@latent_channels",
+        "out_channels": "@latent_channels",
+        "num_channels": [
+            64,
+            128,
+            256,
+            512
+        ],
+        "attention_levels": [
+            false,
+            false,
+            true,
+            true
+        ],
+        "num_head_channels": [
+            0,
+            0,
+            32,
+            32
+        ],
+        "with_conditioning": true,
+        "cross_attention_dim": 256,
+
+        "num_res_blocks": 2,
+        "use_flash_attention": true,
+        
+        "include_top_region_index_input": false,
+        "include_bottom_region_index_input": false,
+        "include_spacing_input": false
+    },
+    "controlnetUNSB_def": {
+        "_target_": "networks_copy.controlnet_maisi.ControlNetMaisi",
+        "spatial_dims": "@spatial_dims",
+        "in_channels": "@latent_channels",
+        "num_channels": [
+            64,
+            128,
+            256,
+            512
+        ],
+        "attention_levels": [
+            false,
+            false,
+            true,
+            true
+        ],
+        "num_head_channels": [
+            0,
+            0,
+            32,
+            32
+        ],
+        "num_res_blocks": 2,
+        "use_flash_attention": true,
+        "conditioning_embedding_in_channels": 3,
+        "conditioning_embedding_num_channels": [8, 32, 64]
+    },
+    "mask_generation_autoencoder_def": {
+        "_target_": "monai.apps.generation.maisi.networks.autoencoderkl_maisi.AutoencoderKlMaisi",
+        "spatial_dims": "@spatial_dims",
+        "in_channels": 3,
+        "out_channels": 3,
+        "latent_channels": "@latent_channels",
+        "num_channels": [
+            32,
+            64,
+            128
+        ],
+        "num_res_blocks": [1, 2, 2],
+        "norm_num_groups": 32,
+        "norm_eps": 1e-06,
+        "attention_levels": [
+            false,
+            false,
+            false
+        ],
+        "with_encoder_nonlocal_attn": false,
+        "with_decoder_nonlocal_attn": false,
+        "use_flash_attention": false,
+        "use_checkpointing": true,
+        "use_convtranspose": true,
+        "norm_float16": true,
+        "num_splits": 8,
+        "dim_split": 1
+    },
+    "mask_generation_diffusion_def": {
+        "_target_": "monai.networks.nets.diffusion_model_unet.DiffusionModelUNet",
+        "spatial_dims": "@spatial_dims",
+        "in_channels": "@latent_channels",
+        "out_channels": "@latent_channels",
+        "channels":[64, 128, 256, 512],
+        "attention_levels":[false, false, true, true],
+        "num_head_channels":[0, 0, 32, 32],
+        "num_res_blocks": 2,
+        "use_flash_attention": true,
+        "with_conditioning": true,
+        "upcast_attention": true,
+        "cross_attention_dim": 10
+    },
+    "mask_generation_scale_factor": 1.0055984258651733,
+    "noise_scheduler": {
+        "_target_": "monai.networks.schedulers.ddpm.DDPMScheduler",
+        "num_train_timesteps": 1000,
+        "beta_start": 0.0015,
+        "beta_end": 0.0195,
+        "schedule": "scaled_linear_beta",
+        "clip_sample": false
+    },
+    "mask_generation_noise_scheduler": {
+        "_target_": "monai.networks.schedulers.ddpm.DDPMScheduler",
+        "num_train_timesteps": 1000,
+        "beta_start": 0.0015,
+        "beta_end": 0.0195,
+        "schedule": "scaled_linear_beta",
+        "clip_sample": false
+    },
+    "unsb_noise_scheduler": {
+        "num_train_timesteps": 5,
+        "tau": 0.01
+    }
+}

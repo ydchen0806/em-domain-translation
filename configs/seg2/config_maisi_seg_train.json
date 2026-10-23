@@ -1,0 +1,66 @@
+{
+    "controlnet_train": {
+        "batch_size": 1,
+        "cache_rate": 0.0,
+        "fold": 0,
+        "lr": 1e-5,
+        "n_epochs": 300,
+        "weighted_loss_label": [null],
+        "weighted_loss": 1
+    },
+    "controlnet_infer": {
+       "num_inference_steps": 1000,
+       "autoencoder_sliding_window_infer_size": [160, 160, 18]
+    },
+    "seg_train": {
+        "with_controlnet_train": false,
+        "online_sampling": false,
+        "no_sampling": true,
+        "sampling_dir": "./local_data/samples_flow_sy0st20",
+
+        "AtoC": false,
+        
+        "crop_size": [18, 160, 160],
+        "use_vqgan": true,
+        "use_144": true, 
+
+        "run_baseline": true,
+        "method": "dacs",
+
+        "batch_size": 2,
+
+        "power": 1.0,
+        "lr": 6e-5,
+        "special_no_maisi_lr": true,
+
+        "n_epochs": 4000,
+        "rampup_epochs": 500,
+        "buchong": "原本是n_epochs4000，rampup_epochs500记得改回去; 尝试了500 50",
+        "weight_rampup": true,
+
+        "val_interval": 2,
+        "visual_all_interval": 100,
+        "ps1": "这个指的是epoch间隔",
+        
+        "loss_func": "WeightedMSELoss",
+        "weight_syn": 0.0,
+        "weight_tgt": 0.0,
+        "weight_mix": 0.5,
+        "auto_mask_tgt": false,
+        "mask_loss": 10,
+
+        
+        "use_ema": true,
+        "alpha": 0.999,
+        "pseudo_threshold": 0.5,
+
+        "feature_align": false,
+        "proto_pred_loss": false,
+        "consist_fea_loss": false,
+
+        "weight_fa": 0.1,
+        "weight_proto_pred": 0.1,
+        "weight_consist_fea": 0.1
+
+    }
+}
